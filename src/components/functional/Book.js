@@ -1,8 +1,15 @@
 function Book(props) {
+    if (!props.title) {
+        return (
+            <article>
+                <p>No information provided</p>
+            </article>
+        );
+    }
     return (
         <article>
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
+            <h3 onClick={props.clickHandler}>{props.title}</h3>
+            <p>{props.description || 'Default Description'}</p>
         </article>
     );
 }
