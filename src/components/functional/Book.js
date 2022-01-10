@@ -10,6 +10,7 @@ function Book(props) {
         <article>
             <h3 onClick={props.clickHandler}>{props.title}</h3>
             <p>{props.description || 'Default Description'}</p>
+            <p>{props.author}</p>
         </article>
     );
 }

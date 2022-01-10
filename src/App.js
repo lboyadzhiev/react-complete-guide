@@ -5,7 +5,7 @@ import Counter from './components/classComponents/Counter';
 const booksData = [
     { title: 'Harry Potter', description: 'Wizards and stuff' },
     { title: 'Programming with JS', description: 'Guide to programming' },
-    { title: 'The bible', description: 'Most important book.' },
+    { title: 'The bible', description: 'Most important book', author: 'God' },
     { title: null, description: 'Most important book.' },
 ];
 
