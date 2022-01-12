@@ -6,36 +6,41 @@ import './index.css';
 // import App from './App';
 
 // setup vars
-const firstBook = {
-    img: 'https://m.media-amazon.com/images/I/51uE7czRB1L._AC_UL320_.jpg',
-    title: 'The list',
-    author: 'Siobhna Vivian',
-};
+const books = [
+    {
+        img: 'https://m.media-amazon.com/images/I/51uE7czRB1L._AC_UL320_.jpg',
+        title: 'The list',
+        author: 'Siobhna Vivian',
+    },
 
-const secondBook = {
-    img: 'https://m.media-amazon.com/images/P/B09G8YLYVK.01._SCLZZZZZZZ_SX500_.jpg',
-    title: 'The Runion',
-    author: 'Kiersten Modglin',
-};
+    {
+        img: 'https://m.media-amazon.com/images/P/B09G8YLYVK.01._SCLZZZZZZZ_SX500_.jpg',
+        title: 'The Runion',
+        author: 'Kiersten Modglin',
+    },
+    {
+        img: 'https://m.media-amazon.com/images/I/61JefgJRqAL._AC_UL320_.jpg',
+        title: 'The New Book of Lists: The Original Compendium of Curious Information',
+        author: 'by David Wallechinsky and Amy Wallace',
+    },
+];
 
 function BookList() {
     return (
         <section className='booklist'>
-            <Book img={firstBook.img} title={firstBook.title} author={firstBook.author}>
-                <p>This is the child, we do it to show how 'Children' propertie is working!!!</p>
-            </Book>
-            <Book img={secondBook.img} title={secondBook.title} author={secondBook.author} />
+            {books.map((book) => {
+                return <Book book={book} />;
+            })}
         </section>
     );
 }
 const Book = (props) => {
-    const { img, title, author, children } = props;
+    const { img, title, author } = props.book;
     return (
         <article className='book'>
             <img src={img} alt='' />
             <h1>{title}</h1>
             <h4>{author}</h4>
-            {children}
         </article>
     );
 };
