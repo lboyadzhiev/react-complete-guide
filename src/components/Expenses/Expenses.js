@@ -4,18 +4,17 @@ import './Expenses.css';
 
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
-import ExpenseForm from '../NewExpense/ExpenseForm';
 
 const Expenses = (props) => {
     const [inputValue, setInputValue] = useState('2020');
-    const saveFilterData = (data) => {
-        setInputValue(data);
+    const filterChangeHandler = (option) => {
+        setInputValue(option);
     };
 
     return (
         <div>
-            <ExpensesFilter onSaveFilterData={saveFilterData} />
             <Card className='expenses'>
+                <ExpensesFilter selected={inputValue} onChangeOption={filterChangeHandler} />
                 {props.items.map((item) => {
                     return <ExpenseItem key={item.id} {...item} />;
                 })}
