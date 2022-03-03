@@ -4,6 +4,7 @@ import './Expenses.css';
 import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesList from './ExpensesList';
 
 const Expenses = (props) => {
     const [inputValue, setInputValue] = useState('2020');
@@ -21,9 +22,7 @@ const Expenses = (props) => {
         <div>
             <Card className='expenses'>
                 <ExpensesFilter selected={inputValue} onChangeOption={filterChangeHandler} />
-                {filteredItems.map((item) => {
-                    return <ExpenseItem key={item.id} {...item} />;
-                })}
+                <ExpensesList items={filteredItems} />
             </Card>
         </div>
     );
